@@ -1,5 +1,5 @@
 ---
-// import MovieCard from '../../../components/MovieCard.astro'
+import MovieCard from '@/components/MovieCard.astro'
 
 const popularMoviesResponse = await fetch(
   'https://api.themoviedb.org/3/movie/popular?api_key=' +
@@ -17,7 +17,7 @@ const popularMovies = popularMoviesData.results
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
     >
-      {popularMovies.map((movie) => <p>{movie.overview}</p>)}
+      {popularMovies.map((movie) => <MovieCard movie={movie} />)}
     </div>
   </div>
   <!-- end pouplar-movies -->
